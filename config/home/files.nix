@@ -13,4 +13,16 @@
     source = ./files/fonts;
     recursive = true;
   };
+  #home.file.".config/hypr" = {
+  #  source = ./files/hypr;
+  #  recursive = true;
+  #};
+  #home.file.".config/hypr/hyprpaper.conf" = {
+  #  source = ./files/hyprpaper.conf;
+  #  enable = true;
+  #};
+  #home.file.".config/hypr/cache-wal.conf" = {
+  #  source = ./files/cache-wal.conf;
+  #  enable = true;
+  #};
 }

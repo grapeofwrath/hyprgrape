@@ -7,7 +7,10 @@
     ignore-empty-password
     indicator-thickness=15
     indicator-radius=150
-    image=~/Pictures/Wallpapers/Gangsta-Hoodie.jpeg
+    # image=~/Pictures/Wallpapers/dhc-2-beaver.jpg
+    screenshots
+    effect-pixelate=10
+    fade-in=0.5
     ring-color=${config.colorScheme.colors.base0D}
     key-hl-color=${config.colorScheme.colors.base0F}
     line-color=00000000

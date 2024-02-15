@@ -18,6 +18,8 @@ in {
     noto-fonts-color-emoji material-icons brightnessctl
     toybox virt-viewer jetbrains.pycharm-community-bin
     (pkgs.python3.withPackages my-python-packages)
+    gradience adw-gtk3 rose-pine-icon-theme wineWowPackages.staging
+    appimage-run
   ];
 
   programs.steam.gamescopeSession.enable = true;

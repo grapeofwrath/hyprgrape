@@ -1,6 +1,6 @@
 { pkgs, config, lib, browser,
   cpuType, gpuType, wallpaperDir,
-  inputs, borderAnim, ... }:
+  inputs, borderAnim, emailURL, ... }:
 
 let
   theme = config.colorScheme.colors;
@@ -84,7 +84,7 @@ in with lib; {
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
         ${if borderAnim == "on" then ''
-          animation = borderangle, 1, 30, liner, loop
+          animation = borderangle, 1, 90, liner, loop
         '' else ''
         ''}
         animation = fade, 1, 10, default
@@ -110,11 +110,13 @@ in with lib; {
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = hyprctl setcursor Bibata-Modern-Ice 24
-      exec-once = swww init
+      # exec-once = swww init
+      exec-once = hyprpaper
       exec-once = waybar
       exec-once = swaync
-      exec-once = wallsetter
-      exec-once = swayidle -w timeout 720 'swaylock -f'
+      # exec-once = wallsetter
+      exec-once = wallpaper
+      exec-once = swayidle -w timeout 900 'swaylock -f'
       dwindle {
         pseudotile = true
         preserve_split = true
@@ -126,8 +128,9 @@ in with lib; {
       bind = ${modifier}SHIFT,Return,exec,rofi -show drun
       bind = ${modifier}SHIFT,W,exec,kitty -e amfora
       bind = ${modifier}SHIFT,S,exec,swaync-client -rs
+      bind = ${modifier},L,exec,swaylock -f
       bind = ${modifier},W,exec,${browser}
-      bind = ${modifier},E,exec,emopicker9000
+      bind = ${modifier},E,exec,brave --new-window ${emailURL}
       bind = ${modifier},S,exec,grim -g "$(slurp)"
       bind = ${modifier},D,exec,discord
       bind = ${modifier},O,exec,obs
@@ -181,7 +184,7 @@ in with lib; {
       bind = ${modifier},mouse_up,workspace, e-1
       bindm = ${modifier},mouse:272,movewindow
       bindm = ${modifier},mouse:273,resizewindow
-      bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
       bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
       bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%

@@ -34,7 +34,8 @@
     waybarStyle = "style2"; # can be style1-2
     borderAnim = "on"; # anything other than on disables anim borders in Hyprland
     browser = "brave";
-    wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
+    emailURL = "mail.proton.me drive.proton.me calendar.proton.me";
+    wallpaperGit = "https://github.com/grapeofwrath/wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     flakeDir = "/home/${username}/hyprgrape";
     # Driver selection profile
@@ -77,6 +78,7 @@
               inherit gpuType; inherit cpuType;
               inherit waybarStyle; inherit borderAnim;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+	      inherit emailURL;
             };
 	        home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

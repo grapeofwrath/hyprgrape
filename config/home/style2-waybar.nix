@@ -13,7 +13,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
       modules-right = [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
       "hyprland/workspaces" = {
-      	format = "{icon}";
+      	format = "{name}";
       	format-icons = {
           default = " ";
           active = " ";
@@ -143,6 +143,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
     		border-radius: 10px;
     		border: 0px;
     		font-style: normal;
+		font-size: 16px;
     		color: #${config.colorScheme.colors.base00};
 	}
 	#workspaces button {
@@ -185,14 +186,14 @@ lib.mkIf ("${waybarStyle}" == "style2") {
     		padding: 2px 10px;
 	}
 	#memory {
-    		color: #${config.colorScheme.colors.base0F};
+    		color: #${config.colorScheme.colors.base03};
     		background: #${config.colorScheme.colors.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#clock {
-    		color: #${config.colorScheme.colors.base0B};
+    		color: #${config.colorScheme.colors.base09};
     		background: #${config.colorScheme.colors.base01};
     		border-radius: 10px;
     		margin: 4px;
@@ -206,7 +207,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
     		padding: 2px 10px;
 	}
 	#cpu {
-    		color: #${config.colorScheme.colors.base07};
+    		color: #${config.colorScheme.colors.base03};
     		background: #${config.colorScheme.colors.base01};
     		border-radius: 10px;
     		margin: 4px;
@@ -227,7 +228,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
     		padding: 2px 10px;
 	}
 	#network {
-    		color: #${config.colorScheme.colors.base09};
+    		color: #${config.colorScheme.colors.base0C};
     		background: #${config.colorScheme.colors.base01};
     		border-radius: 10px;
     		margin: 4px;
