@@ -71,6 +71,8 @@ in with lib; {
       misc {
         mouse_move_enables_dpms = true
         key_press_enables_dpms = false
+	force_default_wallpaper = 0
+	disable_splash_rendering = true
       }
       animations {
         enabled = yes
@@ -110,11 +112,9 @@ in with lib; {
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = hyprctl setcursor Bibata-Modern-Ice 24
-      # exec-once = swww init
       exec-once = hyprpaper
       exec-once = waybar
       exec-once = swaync
-      # exec-once = wallsetter
       exec-once = wallpaper
       exec-once = swayidle -w timeout 900 'swaylock -f'
       dwindle {

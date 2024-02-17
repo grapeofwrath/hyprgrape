@@ -1,10 +1,10 @@
 { pkgs, username, wallpaperDir, wallpaperGit }:
 
 pkgs.writeShellScriptBin "wallpaper" ''
-  timeout=900
+  timeout=10
   monitor=(`hyprctl monitors | grep Monitor | awk '{print $2}'`)
   wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-  cache=""
+  declare -A cache=()
 
   if [ -d ${wallpaperDir} ]; then
     cd ${wallpaperDir}
@@ -14,17 +14,32 @@ pkgs.writeShellScriptBin "wallpaper" ''
     chown -R ${username}:users ${wallpaperDir}
   fi
 
-  while true; do
-    if [[ $cache == $wal ]]; then
+  if [ $cache == null ]
+  then
+    for m in ''${monitor[@]}; do
       wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-    else
-      cache=$wal
-      hyprctl hyprpaper unload all
-      hyprctl hyprpaper preload $wal
-      for m in ''${monitor[@]}; do
+      cache+=([$m]=$wal)
+    done
+  else
+    echo "Cache not null"
+  fi
+
+  hyprctl hyprpaper unload all
+
+  while true; do
+    for m in ''${monitor[@]}; do
+      if [[ ''${cache[*]} == "$wall"  ]]
+      then
+        wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
+      else
+        hyprctl hyprpaper preload $wal
         hyprctl hyprpaper wallpaper "$m,$wal"
-      done
-    fi
+	cache+=([$m]=$wal)
+      fi
+    done
+    for key in ''${!cache[@]}; do
+      echo "$key, ''${cache[$key]}"
+    done
     sleep $timeout
   done
 ''

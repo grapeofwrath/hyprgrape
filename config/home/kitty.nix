@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.kitty;
     font.name = "JetBrainsMono Nerd Font";
-    font.size = 16;
+    font.size = 14;
     settings = {
       scrollback_lines = 2000;
       wheel_scroll_min_lines = 1;
