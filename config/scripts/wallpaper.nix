@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "wallpaper" ''
   timeout=900
   monitor=(`hyprctl monitors | grep Monitor | awk '{print $2}'`)
   wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-  cache=""
+  cache=$wal
 
   if [ -d ${wallpaperDir} ]; then
     cd ${wallpaperDir}
