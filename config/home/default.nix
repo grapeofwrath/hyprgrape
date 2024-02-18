@@ -8,7 +8,6 @@
     ./swaync.nix
     ./swaylock.nix
     ./starship.nix
-    ./neofetch.nix
     ./hyprland.nix
     ./kitty.nix
     ./rofi.nix

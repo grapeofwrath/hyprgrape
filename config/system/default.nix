@@ -9,7 +9,6 @@
     ./intel-amd.nix
     ./intel-gpu.nix
     ./intel-nvidia.nix
-    ./neovim.nix
     ./nvidia.nix
     ./packages.nix
     ./polkit.nix

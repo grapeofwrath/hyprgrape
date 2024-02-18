@@ -11,7 +11,6 @@
       #fi
     '';
     initExtra = ''
-      neofetch
       if [ -f $HOME/.bashrc-personal ]; then
         source $HOME/.bashrc-personal
       fi
