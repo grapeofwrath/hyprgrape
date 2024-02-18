@@ -3,8 +3,8 @@
 {
   services.xserver = {
     enable = true;
-    layout = "${theKBDLayout}";
-    xkbVariant = "";
+    xkb.layout = "${theKBDLayout}";
+    xkb.variant = "";
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
