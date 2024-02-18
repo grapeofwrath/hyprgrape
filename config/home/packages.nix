@@ -4,7 +4,7 @@
 {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" gh gnome.nautilus (pkgs.discord.override { withVencord = true; }) vesktop libvirt swww hyprpaper grim slurp gnome.file-roller
+    pkgs."${browser}" gh gnome.nautilus (pkgs.discord.override { withVencord = true; }) vesktop libvirt hyprpaper grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
     font-awesome spotify swayidle vim neovide neovim pavucontrol
