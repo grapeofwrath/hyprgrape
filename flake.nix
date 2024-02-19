@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "HyprGrape";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,9 +15,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    grape-neovim.url = "github:grapeofwrath/nixvim-flake";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, grape-neovim, ... }:
   let
     system = "x86_64-linux";
 
@@ -31,8 +32,8 @@
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
     theme = "rose-pine";
-    waybarStyle = "style2"; # can be style1-2
-    borderAnim = "on"; # anything other than on disables anim borders in Hyprland
+    waybarStyle = "style2";
+    borderAnim = "on";
     browser = "brave";
     emailURL = "mail.proton.me drive.proton.me calendar.proton.me";
     wallpaperGit = "https://github.com/grapeofwrath/wallpapers.git";
@@ -53,13 +54,13 @@
     pkgs = import nixpkgs {
       inherit system;
       config = {
-	    allowUnfree = true;
+	allowUnfree = true;
       };
     };
   in {
     nixosConfigurations = {
       "${hostname}" = nixpkgs.lib.nixosSystem {
-	    specialArgs = { 
+	specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
           inherit gitUsername; inherit theTimezone;
@@ -68,9 +69,9 @@
           inherit cpuType; inherit theKBDLayout;
           inherit theLCVariables; inherit gpuType;
         };
-	    modules = [ ./system.nix
+	modules = [ ./system.nix
           home-manager.nixosModules.home-manager {
-	        home-manager.extraSpecialArgs = { inherit username; 
+	    home-manager.extraSpecialArgs = { inherit username; 
               inherit gitUsername; inherit gitEmail;
               inherit inputs; inherit theme;
               inherit browser; inherit wallpaperDir;
@@ -80,12 +81,12 @@
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
 	      inherit emailURL;
             };
-	        home-manager.useGlobalPkgs = true;
+	    home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-	        home-manager.users.${username} = import ./home.nix;
-	      }
-	    ];
+	    home-manager.users.${username} = import ./home.nix;
+	  }
+	];
       };
     };
   };
