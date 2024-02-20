@@ -10,7 +10,7 @@
     font-awesome spotify swayidle vim neovide neovim pavucontrol
     element-desktop swaylock-effects (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     inkscape filezilla (pkgs.discord.override { withVencord = true; }) vesktop
-    lazygit feh
+    lazygit swww
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
     (import ./../scripts/task-waybar.nix { inherit pkgs; })

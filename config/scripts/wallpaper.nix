@@ -3,7 +3,7 @@
 pkgs.writeShellScriptBin "wallpaper" ''
   monitor=(`hyprctl monitors | grep Monitor | awk '{print $2}'`)
   wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-  cache=""
+#  cache=""
 
   if [ -d ${wallpaperDir} ]; then
     cd ${wallpaperDir}
@@ -14,14 +14,15 @@ pkgs.writeShellScriptBin "wallpaper" ''
   fi
 
   while true; do
-    if [[ $cache == $wal ]]; then
-      wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-    else
-      cache=$wal
-      for m in ''${monitor[@]}; do
-        feh --bg-fill --no-fehbg $wal
-      done
-    fi
+    for m in ''${monitor[@]}; do
+#      if [[ $cache == $wal ]]; then
+        wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
+#      else
+#        cache=$wal
+        ${pkgs.swww}/bin/swww img -o $m $wal
+#      fi
+#      sleep 1
+    done
     sleep 900
  done
 ''
