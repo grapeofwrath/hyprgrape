@@ -28,9 +28,15 @@
     enable = true;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    package = pkgs.gitFull;
+    extraConfig = {
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
+      push = { autoSetupRemote = true; };
+    };
   };
 
-  # Create XDG Dirs
   xdg = {
     userDirs = {
         enable = true;

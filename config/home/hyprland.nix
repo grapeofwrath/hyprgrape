@@ -115,7 +115,7 @@ in with lib; {
       exec-once = hyprpaper
       exec-once = waybar
       exec-once = swaync
-      exec-once = wallpaper
+      #exec-once = wall-loop
       exec-once = swayidle -w timeout 900 'swaylock -f'
       dwindle {
         pseudotile = true

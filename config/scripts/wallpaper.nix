@@ -13,7 +13,7 @@ pkgs.writeShellScriptBin "wallpaper" ''
     chown -R ${username}:users ${wallpaperDir}
   fi
 
-  while true; do
+#  while true; do
     if [[ $cache == $wal ]]; then
       wal=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
     else
@@ -24,6 +24,6 @@ pkgs.writeShellScriptBin "wallpaper" ''
         hyprctl hyprpaper wallpaper "$m,$wal"
       done
     fi
-    sleep 900
-  done
+#    sleep 900
+# done
 ''
