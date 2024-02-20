@@ -8,7 +8,7 @@
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
     font-awesome spotify swayidle vim neovide neovim pavucontrol
-    element-desktop swaylock-effects (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    element-desktop swaylock-effects (nerdfonts.override { fonts = [ "JetBrainsMono" "CascadiaCode" ]; })
     inkscape filezilla (pkgs.discord.override { withVencord = true; }) vesktop
     lazygit swww fzf zoxide direnv
     # Import Scripts
