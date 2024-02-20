@@ -19,7 +19,7 @@ in {
     toybox virt-viewer jetbrains.pycharm-community-bin
     (pkgs.python3.withPackages my-python-packages)
     gradience adw-gtk3 rose-pine-icon-theme wineWowPackages.staging
-    appimage-run libsecret zsh
+    appimage-run libsecret
   ];
 
   programs.steam.gamescopeSession.enable = true;
@@ -36,9 +36,6 @@ in {
     enableSSHSupport = true;
   };
   programs.seahorse.enable = true;
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;

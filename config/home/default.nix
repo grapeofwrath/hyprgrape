@@ -13,7 +13,6 @@
     ./rofi.nix
     ./vim.nix
     ./bash.nix
-    ./zsh.nix
     ./gtk-qt.nix
 
     # Install Programs & Scripts For User
