@@ -9,6 +9,12 @@
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
       #  exec Hyprland
       #fi
+      if command -v fzf-share >/dev/null; then
+        source "$(fzf-share)/key-bindings.bash"
+        source "$(fzf-share)/completion.bash"
+      fi
+      
+      eval "$(zoxide init bash)"
     '';
     initExtra = ''
       if [ -f $HOME/.bashrc-personal ]; then
