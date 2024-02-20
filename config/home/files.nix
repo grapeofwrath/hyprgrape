@@ -13,4 +13,8 @@
     source = ./files/fonts;
     recursive = true;
   };
+  home.file.".config/zsh" = {
+    source = ./files/zsh;
+    recursive = true;
+  };
 }
