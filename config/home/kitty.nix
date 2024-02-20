@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    font.name = "Caskaydia Nerd Font";
+    font.name = "JetBrainsMono Nerd Font";
     font.size = 12;
     settings = {
       scrollback_lines = 2000;
