@@ -112,10 +112,9 @@ in with lib; {
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = hyprctl setcursor Bibata-Modern-Ice 24
-      exec-once = hyprpaper
       exec-once = waybar
       exec-once = swaync
-      #exec-once = wall-loop
+      exec-once = wallpaper
       exec-once = swayidle -w timeout 900 'swaylock -f'
       dwindle {
         pseudotile = true
