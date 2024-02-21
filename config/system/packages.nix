@@ -37,6 +37,8 @@ in {
   };
   programs.seahorse.enable = true;
 
+  programs.nushell.enable = true;
+
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 }

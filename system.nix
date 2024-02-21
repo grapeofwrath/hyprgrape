@@ -38,6 +38,7 @@
     description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
+    shell = pkgs.nushell;
   };
 
   environment.variables = {
