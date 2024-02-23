@@ -28,13 +28,13 @@ programs = {
        prepend /home/myuser/.apps |
        append /usr/bin/env
        )
-       '';
+      '';
       shellAliases = {
         sv="sudo nvim";
         rebuild="sudo nixos-rebuild switch --flake ${flakeDir}";
         update="sudo nix flake update ${flakeDir}";
-        gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-        v="nvim";
+        gcCleanup="nix-collect-garbage --delete-old and sudo nix-collect-garbage -d and sudo /run/current-system/bin/switch-to-configuration boot";
+        v = "nvim";
         #ls="lsd";
         #ll="lsd -l";
         #la="lsd -a";
