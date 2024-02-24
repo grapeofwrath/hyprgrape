@@ -1,4 +1,4 @@
-{ pkgs, username, wallpaperDir, wallpaperGit }:
+{ pkgs, wallpaperDir, wallpaperGit }:
 
 pkgs.writeShellScriptBin "wallpaper" ''
   monitor=(`hyprctl monitors | grep Monitor | awk '{print $2}'`)
@@ -10,7 +10,7 @@ pkgs.writeShellScriptBin "wallpaper" ''
     git pull
   else
     ${pkgs.git}/bin/git clone ${wallpaperGit} ${wallpaperDir}
-    chown -R ${username}:users ${wallpaperDir}
+    chown -R marcus:users ${wallpaperDir}
   fi
 
   while true; do

@@ -1,10 +1,10 @@
-{ pkgs, config, browser, wallpaperDir, flakeDir,
-  username, wallpaperGit, ... }:
+{ pkgs, config, wallpaperDir, flakeDir,
+  wallpaperGit, ... }:
 
 {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" gh gnome.nautilus libvirt grim slurp gnome.file-roller
+    brave gh gnome.nautilus libvirt grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
     font-awesome spotify swayidle vim neovide neovim pavucontrol
@@ -16,9 +16,7 @@
     (import ./../scripts/task-waybar.nix { inherit pkgs; })
     (import ./../scripts/squirtle.nix { inherit pkgs; })
     (import ./../scripts/wallpaper.nix { inherit pkgs; inherit wallpaperDir;
-      inherit username; inherit wallpaperGit; })
-    (import ./../scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
-    (import ./../scripts/theme-selector.nix { inherit pkgs; })
+      inherit wallpaperGit; })
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
   ];
 }

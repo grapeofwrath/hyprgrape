@@ -25,17 +25,10 @@
     # User Variables
     hostname = "hyprnix";
     username = "marcus";
-    gitUsername = "grapeofwrath";
-    gitEmail = "69535018+grapeofwrath@users.noreply.github.com";
     theLocale = "en_US.UTF-8";
     theKBDLayout = "us";
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "rose-pine";
-    waybarStyle = "style2";
-    borderAnim = "on";
-    browser = "brave";
-    emailURL = "mail.proton.me drive.proton.me calendar.proton.me";
     wallpaperGit = "https://github.com/grapeofwrath/wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     flakeDir = "/home/${username}/hyprgrape";
@@ -45,7 +38,7 @@
     # vm for both if you are running a vm
     cpuType = "amd";
     gpuType = "amd";
-    # Run: sudo lshw -c display to find this info
+    # sudo lshw -c display
     # This is needed ONLY for hybrid nvidia offloading
     # Run: nvidia-offload (insert program name)
     intel-bus-id = "PCI:0:2:0";
@@ -62,9 +55,9 @@
       "${hostname}" = nixpkgs.lib.nixosSystem {
 	specialArgs = { 
           inherit system; inherit inputs; 
-          inherit username; inherit hostname;
-          inherit gitUsername; inherit theTimezone;
-          inherit gitEmail; inherit theLocale;
+          inherit hostname;
+          inherit theTimezone;
+          inherit theLocale;
           inherit wallpaperDir; inherit wallpaperGit;
           inherit cpuType; inherit theKBDLayout;
           inherit theLCVariables; inherit gpuType;
@@ -72,19 +65,16 @@
 	modules = [ ./system.nix
           home-manager.nixosModules.home-manager {
 	    home-manager.extraSpecialArgs = { inherit username; 
-              inherit gitUsername; inherit gitEmail;
-              inherit inputs; inherit theme;
-              inherit browser; inherit wallpaperDir;
+              inherit inputs;
+              inherit wallpaperDir;
               inherit wallpaperGit; inherit flakeDir;
               inherit gpuType; inherit cpuType;
-              inherit waybarStyle; inherit borderAnim;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-	      inherit emailURL;
             };
 	    home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-	    home-manager.users.${username} = import ./home.nix;
+	    home-manager.users.marcus = import ./home.nix;
 	  }
 	];
       };

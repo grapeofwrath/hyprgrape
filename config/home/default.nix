@@ -3,7 +3,6 @@
 {
   imports = [
     # Enable &/ Configure Programs
-    ./style1-waybar.nix
     ./style2-waybar.nix
     ./swaync.nix
     ./swaylock.nix
@@ -11,7 +10,6 @@
     ./hyprland.nix
     ./kitty.nix
     ./rofi.nix
-    ./vim.nix
     ./bash.nix
     ./nushell.nix
     ./gtk-qt.nix

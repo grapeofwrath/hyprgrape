@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, username,
+{ inputs, config, pkgs,
   hostname, gitUsername, theLocale,
   theTimezone, wallpaperDir, wallpaperGit, 
   theLCVariables, theKBDLayout, ... }:
@@ -32,16 +32,16 @@
   };
 
   # Define a user account.
-  users.users."${username}" = {
+  users.users."marcus" = {
     homeMode = "755";
     isNormalUser = true;
-    description = "${gitUsername}";
+    description = "grapeofwrath";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
-    shell = pkgs.nushell;
+    #shell = pkgs.nushell;
   };
 
-  programs.nushell.enable = true;
+  #programs.nushell.enable = true;
 
   environment.variables = {
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
