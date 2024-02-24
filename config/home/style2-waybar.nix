@@ -50,6 +50,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
         format-wifi = "{icon} {signalStrength}%";
         format-disconnected = "󰤮";
         tooltip = false;
+        on-click = "kitty -e nmcli";
       };
       "tray" = {
         spacing = 12;

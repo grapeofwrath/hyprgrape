@@ -38,8 +38,10 @@
     description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
-    #shell = pkgs.nushell;
+    shell = pkgs.nushell;
   };
+
+  programs.nushell.enable = true;
 
   environment.variables = {
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
